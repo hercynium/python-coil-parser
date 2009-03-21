@@ -19,10 +19,6 @@ class CoilParser:
         self.text_pos  = 0
 
 
-    def current_pos( self ):
-        return self.text_pos
-
-    
     # this regex and method will move the text_pos past 
     # any whitespace or comments
     skip_re = re.compile(
@@ -94,6 +90,10 @@ class CoilParser:
 
         self.text_pos = end_match.end()
         return { 'name': name }
+
+
+    def current_pos( self ):
+        return self.text_pos
 
     ### An attempt at a generic matching method.
     # Description:
